@@ -17,6 +17,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <Header />
+        {children}
+      </body>
+    </html>
+  );
+}
+
+const Header = () => {
   const links = [
     {
       href: APP_URLS.home,
@@ -33,28 +44,23 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <header className="grid place-items-center p-4">
-          <div className="flex justify-between items-center sm:w-[80%] w-full">
-            <Image
-              className="w-16"
-              src="/star-wars.svg"
-              width={500}
-              height={500}
-              alt="Logo of Star Wars"
-            />
-            <nav className="flex gap-4">
-              {links.map((link) => (
-                <NavLink key={`app-link-${link.name}`} link={link}>
-                  {link.name}
-                </NavLink>
-              ))}
-            </nav>
-          </div>
-        </header>
-        {children}
-      </body>
-    </html>
+    <header className="grid place-items-center p-4">
+      <div className="flex justify-between items-center sm:w-[80%] w-full">
+        <Image
+          className="w-16"
+          src="/star-wars.svg"
+          width={500}
+          height={500}
+          alt="Logo of Star Wars"
+        />
+        <nav className="flex gap-4">
+          {links.map((link) => (
+            <NavLink key={`app-link-${link.name}`} link={link}>
+              {link.name}
+            </NavLink>
+          ))}
+        </nav>
+      </div>
+    </header>
   );
-}
+};
