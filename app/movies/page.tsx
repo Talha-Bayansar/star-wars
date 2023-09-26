@@ -25,7 +25,7 @@ export default async function Movies() {
             className="flex flex-col gap-4"
           >
             <Link href={`${APP_URLS.movies}/${id}`}>
-              <h2 className="text-2xl sm:text-4xl font-semibold">
+              <h2 className="text-2xl sm:text-4xl font-semibold hover:text-orange-400">
                 {movie.title}
               </h2>
             </Link>
