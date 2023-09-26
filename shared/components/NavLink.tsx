@@ -24,9 +24,9 @@ export const NavLink = ({ link, className, ...props }: Props) => {
       key={`app-link-${link.name}`}
       href={link.href}
       className={twMerge(
-        `capitalize hover:text-orange-400 ${
-          isActive ? "text-orange-300" : "text-black"
-        }`
+        "capitalize hover:text-orange-400",
+        isActive ? "text-orange-300" : "text-black",
+        className
       )}
       {...props}
     >

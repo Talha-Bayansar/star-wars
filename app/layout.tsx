@@ -47,15 +47,19 @@ const Header = () => {
     <header className="grid place-items-center p-4">
       <div className="flex justify-between items-center sm:w-[80%] w-full">
         <Image
-          className="w-16"
+          className="w-16 sm:w-24"
           src="/star-wars.svg"
           width={500}
           height={500}
           alt="Logo of Star Wars"
         />
-        <nav className="flex gap-4">
+        <nav className="flex gap-4 sm:gap-8">
           {links.map((link) => (
-            <NavLink key={`app-link-${link.name}`} link={link}>
+            <NavLink
+              className="sm:text-lg"
+              key={`app-link-${link.name}`}
+              link={link}
+            >
               {link.name}
             </NavLink>
           ))}
