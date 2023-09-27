@@ -33,10 +33,11 @@ export default async function MovieDetails({
                   {v.name}
                 </h3>
               </Link>
-              <div className="flex flex-col gap-1">
-                {v.films.map((movie) => (
-                  <span key={movie}>{movie}</span>
-                ))}
+              <div className="flex flex-col gap-4">
+                <span>Skin color: {v.skin_color}</span>
+                <span>Height: {v.height} cm</span>
+                <span>Hair color: {v.hair_color}</span>
+                <span>Gender: {v.gender}</span>
               </div>
             </div>
           );
