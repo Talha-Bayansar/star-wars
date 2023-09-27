@@ -18,8 +18,9 @@ export default async function MovieDetails({
 
   return (
     <main className="flex flex-col p-4 gap-8">
-      <h1 className="text-2xl sm:text-4xl font-semibold">{movie.title}</h1>
+      <h1 className="text-4xl sm:text-6xl font-semibold">{movie.title}</h1>
       <p>{movie.opening_crawl}</p>
+      <h2 className="text-2xl sm:text-4xl font-semibold">Characters</h2>
       <div className="grid grid-cols-3">
         {characters.map((v) => (
           <div key={v.name}>{v.name}</div>
