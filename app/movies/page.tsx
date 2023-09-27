@@ -5,8 +5,8 @@ import Link from "next/link";
 
 type ApiResponse = {
   count: number;
-  next: any;
-  previous: any;
+  next?: string;
+  previous?: string;
   results: Movie[];
 };
 
