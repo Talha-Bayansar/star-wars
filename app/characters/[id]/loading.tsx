@@ -1,7 +1,7 @@
 import { Spinner } from "@/shared";
 import React from "react";
 
-function LoadingMovies() {
+function LoadingCharacterDetails() {
   return (
     <div className="grid place-items-center">
       <Spinner />
@@ -9,4 +9,4 @@ function LoadingMovies() {
   );
 }
 
-export default LoadingMovies;
+export default LoadingCharacterDetails;
