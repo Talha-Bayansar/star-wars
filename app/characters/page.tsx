@@ -15,7 +15,7 @@ export default async function Characters() {
   const characters = data.results;
 
   return (
-    <main className="grid grid-cols-1 sm:grid-cols-2 gap-8 p-4">
+    <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-4">
       {characters.map((character) => {
         const splittedUrl = character.url.split("/");
         const id = splittedUrl[splittedUrl.length - 2];
