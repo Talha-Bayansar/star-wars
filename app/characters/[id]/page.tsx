@@ -4,6 +4,8 @@ import { API_URLS, APP_URLS } from "@/utils";
 import axios from "axios";
 import Link from "next/link";
 
+export const revalidate = 0;
+
 export default async function CharacterDetails({
   params,
 }: {
