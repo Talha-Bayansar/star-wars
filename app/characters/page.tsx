@@ -12,6 +12,8 @@ type ApiResponse = {
   results: Character[];
 };
 
+export const revalidate = 0;
+
 export default async function Characters({
   searchParams,
 }: {
