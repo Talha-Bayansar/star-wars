@@ -73,12 +73,12 @@ const CustomLink = ({ children, page, className }: ICustomLink) => {
     return (
       <Link
         href={`?page=${page}`}
-        className={twMerge("w-32 hover:text-orange-400", className)}
+        className={twMerge("hover:text-orange-400", className)}
       >
         {children}
       </Link>
     );
   } else {
-    return <div className={twMerge("w-32", className)} />;
+    return <div className={twMerge("", className)} />;
   }
 };
