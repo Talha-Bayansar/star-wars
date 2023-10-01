@@ -4,14 +4,13 @@ import { API_URLS, APP_URLS } from "@/utils";
 import axios from "axios";
 import Link from "next/link";
 
-export const revalidate = 0;
+type ApiResponse = {
+  movie: Movie;
+  characters: Character[];
+};
 
-export default async function MovieDetails({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const response = await axios.get<Movie>(`${API_URLS.films}/${params.id}`);
+const fetchData = async (id: string) => {
+  const response = await axios.get<Movie>(`${API_URLS.films}/${id}`);
   const movie = response.data;
   const characters: Character[] = [];
   for (let index = 0; index < movie.characters.length; index++) {
@@ -19,6 +18,18 @@ export default async function MovieDetails({
     const character = await axios.get<Character>(url);
     characters.push(character.data);
   }
+  return {
+    characters,
+    movie,
+  } as ApiResponse;
+};
+
+export default async function MovieDetails({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { movie, characters } = await fetchData(params.id);
 
   return (
     <main className="flex flex-col p-4 gap-8">
