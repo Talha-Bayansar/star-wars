@@ -1,4 +1,4 @@
-import { Character } from "@/characters";
+import { Character, CharacterCard } from "@/characters";
 import { API_URLS, APP_URLS } from "@/utils";
 import axios from "axios";
 import Link from "next/link";
@@ -55,26 +55,7 @@ export default async function Characters({
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {characters.map((character) => {
-          const splittedUrl = character.url.split("/");
-          const id = splittedUrl[splittedUrl.length - 2];
-          return (
-            <div
-              key={`character_${character.name}`}
-              className="flex flex-col gap-4"
-            >
-              <Link href={`${APP_URLS.characters}/${id}`}>
-                <h2 className="text-2xl sm:text-4xl font-semibold hover:text-orange-400">
-                  {character.name}
-                </h2>
-              </Link>
-              <div className="flex flex-col gap-4">
-                <span>Skin color: {character.skin_color}</span>
-                <span>Height: {character.height} cm</span>
-                <span>Hair color: {character.hair_color}</span>
-                <span>Gender: {character.gender}</span>
-              </div>
-            </div>
-          );
+          return <CharacterCard key={character.name} character={character} />;
         })}
       </div>
     </main>
