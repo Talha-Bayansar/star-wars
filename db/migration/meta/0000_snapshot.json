@@ -1,15 +1,15 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "87dee183-904c-422c-b074-5fa562c9dbc5",
+  "id": "22821775-af07-48a6-92a5-9ce90a00c10f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "idea": {
-      "name": "idea",
+    "ideas": {
+      "name": "ideas",
       "columns": {
         "id": {
           "name": "id",
-          "type": "text",
+          "type": "integer",
           "primaryKey": true,
           "notNull": true,
           "autoincrement": false

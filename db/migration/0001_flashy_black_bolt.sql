@@ -1,1 +1,0 @@
-ALTER TABLE `idea` RENAME TO `ideas`;

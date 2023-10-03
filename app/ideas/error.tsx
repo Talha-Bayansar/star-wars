@@ -1,9 +1,11 @@
 "use client";
 
-type Props = {};
-
-const ErrorIdeas = (props: Props) => {
-  return <div>ErrorIdeas</div>;
+const ErrorIdeas = () => {
+  return (
+    <div className="grid place-items-center">
+      <p>Oops! Something went wrong.</p>
+    </div>
+  );
 };
 
 export default ErrorIdeas;
