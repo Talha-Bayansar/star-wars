@@ -1,6 +1,6 @@
 import { NewIdea, db, tables } from "@/db";
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const ideas = await db.select().from(tables.ideas);
     return Response.json(ideas);
@@ -11,7 +11,6 @@ export async function GET(request: Request) {
 
 export const POST = async (request: Request) => {
   const body = await request.json();
-  console.log(body);
   try {
     const response = await db.insert(tables.ideas).values(body as NewIdea);
     console.log(response);
