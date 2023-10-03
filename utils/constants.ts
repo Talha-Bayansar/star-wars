@@ -1,4 +1,6 @@
 export const swUrl = "https://swapi.dev/api";
+export const rootUrl = process.env.ROOT_URL;
+const rootApiUrl = `${rootUrl}/api`;
 
 export enum API_URLS {
   films = `${swUrl}/films`,
@@ -12,7 +14,7 @@ export enum APP_URLS {
   ideas = "/ideas",
 }
 
-export enum APP_API_URLS {
-  base = "http://localhost:3000/api",
-  ideas = `${base}/ideas`,
-}
+export const APP_API_URLS = {
+  base: rootApiUrl,
+  ideas: `${rootApiUrl}/ideas`,
+};
