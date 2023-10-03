@@ -1,5 +1,6 @@
 import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client";
+export * from "./schema";
 
 const client = createClient({
   url: process.env.DATABASE_URL as string,
@@ -7,4 +8,3 @@ const client = createClient({
 });
 
 export const db = drizzle(client);
-export * from "./schema";

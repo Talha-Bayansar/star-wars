@@ -41,6 +41,10 @@ const Header = () => {
       href: APP_URLS.characters,
       name: "characters",
     },
+    {
+      href: APP_URLS.ideas,
+      name: "ideas",
+    },
   ];
 
   return (

@@ -9,4 +9,10 @@ export enum APP_URLS {
   home = "/",
   movies = "/movies",
   characters = "/characters",
+  ideas = "/ideas",
+}
+
+export enum APP_API_URLS {
+  base = "http://localhost:3000/api",
+  ideas = `${base}/ideas`,
 }
