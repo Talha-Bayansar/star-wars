@@ -82,7 +82,7 @@ interface ICustomLink {
 
 const CustomLink = ({ children, page, className }: ICustomLink) => {
   return (
-    <Link
+    <a
       href={`/characters?page=${page}`}
       className={twMerge(
         `hover:text-orange-400 ${!page && "pointer-events-none opacity-50"}`,
@@ -90,6 +90,6 @@ const CustomLink = ({ children, page, className }: ICustomLink) => {
       )}
     >
       {children}
-    </Link>
+    </a>
   );
 };
