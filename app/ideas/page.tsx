@@ -1,5 +1,7 @@
-import { Idea } from "@/db";
+import { Idea, db, tables } from "@/db";
 import { APP_API_URLS } from "@/utils";
+import { eq } from "drizzle-orm";
+import { revalidateTag } from "next/cache";
 
 const fetchIdeas = async () => {
   try {
@@ -13,21 +15,39 @@ const fetchIdeas = async () => {
   }
 };
 
+const removeIdea = async (id?: number) => {
+  if (id) {
+    await db.delete(tables.ideas).where(eq(tables.ideas.id, id));
+    revalidateTag("ideas");
+  }
+};
+
 async function Ideas() {
   const data = await fetchIdeas();
 
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <form className="flex flex-col gap-4 w-full">
       {!data ? (
         <p>Something went wrong.</p>
       ) : data.length > 0 ? (
-        data.map((idea) => <p key={idea.id}>{idea.description}</p>)
+        data.map((idea) => (
+          <button
+            key={idea.id}
+            className="text-start"
+            formAction={async () => {
+              "use server";
+              await removeIdea(idea.id);
+            }}
+          >
+            {idea.description}
+          </button>
+        ))
       ) : (
         <p className="grid place-items-center">
           There are no ideas yet. Be the first one to add an idea.
         </p>
       )}
-    </div>
+    </form>
   );
 }
 
