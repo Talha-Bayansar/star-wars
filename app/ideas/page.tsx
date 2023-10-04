@@ -2,10 +2,15 @@ import { Idea } from "@/db";
 import { APP_API_URLS } from "@/utils";
 
 async function Ideas() {
-  const response = await fetch(APP_API_URLS.ideas, {
-    next: { tags: ["ideas"] },
-  });
-  const data = (await response.json()) as Idea[];
+  let data: Idea[] = [];
+  try {
+    const response = await fetch(APP_API_URLS.ideas, {
+      next: { tags: ["ideas"] },
+    });
+    data = await response.json();
+  } catch (error) {
+    throw Error();
+  }
 
   return (
     <div className="flex flex-col gap-4 w-full">
