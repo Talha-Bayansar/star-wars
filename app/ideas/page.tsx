@@ -1,21 +1,24 @@
 import { Idea } from "@/db";
 import { APP_API_URLS } from "@/utils";
 
-async function Ideas() {
-  let error = false;
-  let data: Idea[] = [];
+const fetchIdeas = async () => {
   try {
     const response = await fetch(APP_API_URLS.ideas, {
       next: { tags: ["ideas"] },
     });
-    data = await response.json();
+    const data = await response.json();
+    return data as Idea[];
   } catch (error) {
-    error = true;
+    return null;
   }
+};
+
+async function Ideas() {
+  const data = await fetchIdeas();
 
   return (
     <div className="flex flex-col gap-4 w-full">
-      {error ? (
+      {!data ? (
         <p>Something went wrong.</p>
       ) : data.length > 0 ? (
         data.map((idea) => <p key={idea.id}>{idea.description}</p>)
